@@ -68,7 +68,7 @@
 <header>
   <h1>Privacy Policy</h1>
   <p>Trivia Plus</p>
-  <span class="updated">Last updated: March 20, 2026</span>
+  <span class="updated">Last updated: March 23, 2026</span>
 </header>
 
 <div class="container">
@@ -89,8 +89,48 @@
     <p>
       Trivia Plus saves your game progress, wallet balance (coins and XP), profile settings,
       preferences, and achievement data locally on your device using iOS system storage
-      (UserDefaults). This data does not leave your device unless a third-party SDK
-      (described below) transmits it as part of its normal operation.
+      (UserDefaults). This data may also be synced to our cloud services as described below.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Account and profile data (Firebase Authentication and Firestore)</h3>
+    <p>
+      When you launch the App, we automatically create an anonymous account using Firebase
+      Authentication, provided by Google LLC. If you sign into Apple Game Center, this anonymous
+      account is linked to your Game Center identity, creating a persistent account that can be
+      restored if you reinstall the App or switch devices.
+    </p>
+    <p>
+      We store the following profile data in Firebase Firestore, a cloud database provided by
+      Google LLC, associated with your account:
+    </p>
+    <ul>
+      <li>Display name (chosen by you during onboarding, or a randomly generated placeholder)</li>
+      <li>Avatar and profile border selection</li>
+      <li>Player level and XP total</li>
+      <li>Lifetime games played, perfect games count, correct answers, and best streak</li>
+      <li>Top category and mastery tier</li>
+      <li>Number of achievements unlocked and Adventure Mode worlds completed</li>
+      <li>Whether your profile is set to public or private</li>
+      <li>Whether you have an active premium subscription</li>
+      <li>Your Apple Game Center player ID (used to link your in-app profile to leaderboard entries)</li>
+      <li>The date your profile was first created</li>
+    </ul>
+    <p>
+      This data is used to display your profile on in-app leaderboards and to restore your
+      progress if you reinstall the App. If you set your profile to private, your statistics
+      will not be visible to other players on the leaderboard, though your display name and
+      avatar will still appear alongside your score.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Question reports</h3>
+    <p>
+      If you use the in-game question reporting feature, we collect and store the reported
+      question content, the reason for the report, and a timestamp in Firebase Firestore.
+      No personally identifiable information is attached to these reports.
     </p>
   </div>
 
@@ -101,15 +141,15 @@
       with the App. Firebase Analytics may automatically collect:
     </p>
     <ul>
-      <li>App events (e.g., screens visited, game rounds completed)</li>
+      <li>App events (e.g., screens visited, game rounds completed, daily challenges started)</li>
       <li>Session duration and engagement metrics</li>
       <li>Device type, operating system version, and language</li>
       <li>General geographic region (country or city level)</li>
       <li>An anonymous device identifier</li>
     </ul>
     <p>
-      This data is aggregated and anonymized. We use it only to improve the App experience.
-      Firebase Analytics does not collect your name, email address, or precise location.
+      This data is aggregated and used only to improve the App experience. Firebase Analytics
+      does not collect your name, email address, or precise location.
     </p>
   </div>
 
@@ -128,20 +168,43 @@
   </div>
 
   <div class="card">
+    <h3>App integrity data (Firebase App Check)</h3>
+    <p>
+      We use Firebase App Check with Apple's DeviceCheck framework to verify that requests
+      to our backend services originate from a legitimate, unmodified installation of the App.
+      This process does not collect any personally identifiable information.
+    </p>
+  </div>
+
+  <div class="card">
     <h3>Game Center data</h3>
     <p>
-      If you are signed into Apple Game Center, your Game Center alias and scores may be
-      submitted to leaderboards. This data is governed by Apple's Privacy Policy and is not
-      stored by us independently.
+      If you are signed into Apple Game Center, your Game Center alias and scores are submitted
+      to in-app leaderboards. Your Game Center player ID is also stored in our Firestore database
+      so that we can display your in-app profile name and avatar alongside your leaderboard score.
+      Game Center account data is otherwise governed by Apple's Privacy Policy.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Trivia question data</h3>
+    <p>
+      The App fetches trivia questions from third-party question APIs. These requests do not
+      include any personally identifiable information beyond a standard IP address assigned
+      by your internet service provider.
     </p>
   </div>
 
   <!-- 2 -->
   <h2>2. How We Use Your Information</h2>
   <ul>
+    <li>To create and maintain your in-app player profile</li>
+    <li>To display your profile and scores on in-app leaderboards</li>
+    <li>To restore your progress when you reinstall the App or switch devices</li>
     <li>To operate and improve the App and its features</li>
     <li>To diagnose and fix crashes and technical issues</li>
     <li>To understand general usage patterns and player engagement</li>
+    <li>To verify the integrity of App requests and protect against abuse</li>
     <li>To comply with legal obligations</li>
   </ul>
   <p>We do not sell your personal information to third parties.</p>
@@ -154,6 +217,14 @@
   </p>
   <ul>
     <li>
+      <strong>Google Firebase Authentication</strong> —
+      <a href="https://firebase.google.com/support/privacy" target="_blank">firebase.google.com/support/privacy</a>
+    </li>
+    <li>
+      <strong>Google Firebase Firestore</strong> —
+      <a href="https://firebase.google.com/support/privacy" target="_blank">firebase.google.com/support/privacy</a>
+    </li>
+    <li>
       <strong>Google Firebase Analytics</strong> —
       <a href="https://firebase.google.com/support/privacy" target="_blank">firebase.google.com/support/privacy</a>
     </li>
@@ -162,12 +233,16 @@
       <a href="https://firebase.google.com/support/privacy" target="_blank">firebase.google.com/support/privacy</a>
     </li>
     <li>
+      <strong>Google Firebase App Check</strong> —
+      <a href="https://firebase.google.com/support/privacy" target="_blank">firebase.google.com/support/privacy</a>
+    </li>
+    <li>
       <strong>Apple Game Center</strong> —
       <a href="https://www.apple.com/legal/privacy" target="_blank">apple.com/legal/privacy</a>
     </li>
     <li>
-      <strong>Trivia API</strong> — used to fetch quiz questions; no personally identifiable
-      information is sent in these requests beyond a standard IP address.
+      <strong>Trivia question APIs</strong> — used to fetch quiz questions; no personally
+      identifiable information is sent in these requests beyond a standard IP address.
     </li>
   </ul>
 
@@ -175,8 +250,9 @@
   <h2>4. Data Retention</h2>
   <p>
     Game data stored locally on your device is retained until you delete the App or clear its
-    data. Analytics and crash data retained by Google Firebase is subject to Google's data
-    retention policies, typically 14 months for Analytics data.
+    data. Profile data stored in Firebase Firestore is retained until you request deletion
+    (see Section 6). Analytics and crash data retained by Google Firebase is subject to
+    Google's data retention policies, typically 14 months for Analytics data.
   </p>
 
   <!-- 5 -->
@@ -184,28 +260,37 @@
   <p>
     Trivia Plus is not directed at children under the age of 13. We do not knowingly collect
     personal information from children under 13. If you believe a child has provided us with
-    personal information, please contact us and we will take steps to delete such information.
+    personal information, please contact us at the email below and we will take steps to
+    delete such information promptly.
   </p>
 
   <!-- 6 -->
   <h2>6. Your Rights and Choices</h2>
   <ul>
     <li>
-      <strong>Delete your local data:</strong> Delete the App from your device to remove all
-      locally stored game data.
+      <strong>Delete your data:</strong> You can request deletion of your Firestore profile
+      and all associated cloud data at any time using the "Delete My Data" option in the
+      App's Settings. This will permanently remove your profile from our servers. Locally
+      stored data can be removed by deleting the App from your device.
     </li>
     <li>
-      <strong>Opt out of Firebase Analytics:</strong> Contact us at the email below and we can
-      disable analytics collection for your installation.
+      <strong>Make your profile private:</strong> You can set your profile to private in
+      Settings at any time. This hides your statistics from other players on the leaderboard.
+    </li>
+    <li>
+      <strong>Opt out of Firebase Analytics:</strong> Contact us at the email below and we
+      can disable analytics collection for your installation.
     </li>
   </ul>
 
   <!-- 7 -->
-  <h2>7. Security</h2>
+  <h2>7. Data Security</h2>
   <p>
-    We take reasonable measures to protect your information. Game data is stored locally on
-    your device and is protected by iOS's built-in security. However, no method of data storage
-    or transmission is 100% secure, and we cannot guarantee absolute security.
+    We take reasonable measures to protect your information. Locally stored game data is
+    protected by iOS's built-in security. Cloud data stored in Firebase Firestore is protected
+    by Firebase security rules and Firebase App Check, which restricts access to authenticated
+    App installations only. However, no method of data storage or transmission is 100% secure,
+    and we cannot guarantee absolute security.
   </p>
 
   <!-- 8 -->
